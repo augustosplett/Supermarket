@@ -2,8 +2,8 @@ package Account;
 
 public enum TransactionType {
 
-    BuyProducts,
-    SellProducts,
-    PayEmployees
+    BUY_PRODUCTS,
+    SELL_PRODUCTS,
+    PAY_EMPLOYEES
 
 }

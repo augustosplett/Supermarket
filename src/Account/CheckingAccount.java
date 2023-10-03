@@ -4,29 +4,32 @@ import java.util.ArrayList;
 
 public class CheckingAccount {
     public double balance;
-    public ArrayList<StatementMovement> statement;//modify to private and implement a method to insert into the statement
+    private ArrayList<StatementMovement> statement;//modify to private and implement a method to insert into the statement
 
     public CheckingAccount(double balance) {
         this.balance = balance;
         this.statement = new ArrayList<StatementMovement>();
     }
 
+    public void SaveMovementToStatement(StatementMovement movement){
+        this.statement.add(movement);
+    }
     public double TotalIncome(){
-        return SumTransaction(TransactionType.SellProducts);
+        return SumTransaction(TransactionType.SELL_PRODUCTS);
     }
 
     public double TotalOutcome(){
         return
-            SumTransaction(TransactionType.BuyProducts) +
-            SumTransaction(TransactionType.PayEmployees);
+            SumTransaction(TransactionType.BUY_PRODUCTS) +
+            SumTransaction(TransactionType.PAY_EMPLOYEES);
     }
 
     public double TotalPurchases(){
-        return SumTransaction(TransactionType.BuyProducts);
+        return SumTransaction(TransactionType.BUY_PRODUCTS);
     }
 
     public double TotalEmployeesPayments(){
-        return SumTransaction(TransactionType.PayEmployees);
+        return SumTransaction(TransactionType.PAY_EMPLOYEES);
     }
 
     private double SumTransaction(TransactionType transType){
