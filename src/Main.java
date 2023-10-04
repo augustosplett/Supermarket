@@ -1,6 +1,3 @@
-import Account.CheckingAccount;
-import Account.StatementMovement;
-import Account.TransactionType;
 import Warehouse.Item;
 import Warehouse.Warehouse;
 
@@ -25,5 +22,16 @@ public class Main {
         var warhouse = new Warehouse();
         warhouse.addItem(item);
         warhouse.displayItems();
+
+        MenLotionBuilder menLotionBuilder= new MenLotionBuilder();
+        Engineer engineerMen = new Engineer(menLotionBuilder);
+        engineerMen.createLotion();
+        engineerMen.getLotion().display();
+        WomanLotionBuilder womanLotionBuilder= new WomanLotionBuilder();
+        Engineer engineerWmn = new Engineer(womanLotionBuilder);
+        engineerWmn.createLotion();
+        engineerWmn.getLotion().display();
+
+
     }
 }
