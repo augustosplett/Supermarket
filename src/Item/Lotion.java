@@ -2,44 +2,45 @@ package Item;
 
 public class Lotion extends Item {
 
-    String mixQuemical;
-    String fillContainer;
-    String packProduct;
+    private String liquid;
+    private String container;
+    private String box;
 
     Lotion(String name, Double price) {
         super(name, price);
     }
 
-    String getMixQuemical() {
-        return mixQuemical;
+    String getLiquid() {
+        return liquid;
     }
 
-    void setMixChemical(String mixQuemical) {
-        this.mixQuemical = mixQuemical;
+     void setLiquid(String liquid) {
+        this.liquid = liquid;
     }
 
-    String getFillContainer() {
-        return fillContainer;
+     String getContainer() {
+        return container;
     }
 
-    void setFillContainer(String fillContainer) {
-        this.fillContainer = fillContainer;
+     void setContainer(String container) {
+        this.container = container;
     }
 
-    String getPackProduct() {
-        return packProduct;
+   String getBox() {
+        return box;
     }
 
-    void setPackProduct(String packProduct) {
-        this.packProduct = packProduct;
+   void setBox (String box) {
+        this.box = box;
     }
     Lotion getLotion(){
         return this;
     }
+
     public void display(){
-        System.out.println("Mix Quemicals : " + getMixQuemical());
-        System.out.println("Fill Container : " + getFillContainer());
-        System.out.println("Pack Product : " + getPackProduct());
+        System.out.println("Mix Quemicals : " + getLiquid());
+        System.out.println("Fill Container : " + getContainer());
+        System.out.println("Pack Product : " + getBox());
 
     }
 

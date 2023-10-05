@@ -11,7 +11,7 @@ public class Engineer {
 
     }
     public void createLotion(){
-        builder.buildMixQuemical();
+        builder.buildMixChemical();
         builder.buildFillContainer();
         builder.buildPackProduct();
     }

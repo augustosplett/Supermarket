@@ -2,7 +2,7 @@ package Item;
 
 public interface IBuilder {
 
-     void buildMixQuemical();
+     void buildMixChemical();
 
      void buildFillContainer();
 

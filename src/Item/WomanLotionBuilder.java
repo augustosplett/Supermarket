@@ -7,15 +7,15 @@ public class WomanLotionBuilder implements IBuilder {
         this.lotion = new Lotion("Woman Item.Lotion", 30.40);
     }
 
-    public void buildMixQuemical() {
-        this.lotion.setMixChemical("Woman fragance");
+    public void buildMixChemical() {
+        this.lotion.setLiquid("Woman fragance");
     }
 
     public void buildFillContainer() {
-        this.lotion.setFillContainer("Woman continer");
+        this.lotion.setContainer("Woman continer");
     }
     public void buildPackProduct() {
-        this.lotion.setPackProduct("Woman package");
+        this.lotion.setBox("Woman package");
     }
 
     public Lotion getLotion() {
