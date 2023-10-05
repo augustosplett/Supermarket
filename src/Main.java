@@ -21,19 +21,39 @@ public class Main {
 //        System.out.println("Total Purchases: " + account.TotalPurchases());
 //        System.out.println("Total Employees Payment: " + account.TotalEmployeesPayments());
 
-        Item item = new Item("banana", 15);
-        var warhouse = new Warehouse();
-        warhouse.addItem(item);
-        warhouse.displayItems();
+        Item banana = new Item("banana", 15, 5,0,5);
+        Item apples = new Item("apple", 15, 5,0,5);
+        Item watermelon = new Item("watermelon", 15, 5,0,5);
+        Item strawberry = new Item("strawberry", 15, 5,0,5);
+        var warehouse = new Warehouse();
+        warehouse.addItem(banana);
+        warehouse.addItem(apples);
+        warehouse.addItem(watermelon);
+        warehouse.addItem(strawberry);
+        System.out.println("Warehouse before Buyers");
+        warehouse.displayItems();
 
-        MenLotionBuilder menLotionBuilder= new MenLotionBuilder();
-        Engineer engineerMen = new Engineer(menLotionBuilder);
-        engineerMen.createLotion();
-        engineerMen.getLotion().display();
-        WomanLotionBuilder womanLotionBuilder= new WomanLotionBuilder();
-        Engineer engineerWmn = new Engineer(womanLotionBuilder);
-        engineerWmn.createLotion();
-        engineerWmn.getLotion().display();
+        var buyer = new Warehouse();
+        System.out.println("Buyer before Buy");
+        buyer.displayItems();
+
+        buyer.buyItems(warehouse, buyer, banana);
+        System.out.println("Buyer after Buy");
+
+        buyer.displayItems();
+
+        System.out.println("Warehouse after Buyers");
+        warehouse.displayItems();
+        System.out.println("Statement: ");
+        buyer.account.DisplayStatement();
+//        MenLotionBuilder menLotionBuilder= new MenLotionBuilder();
+//        Engineer engineerMen = new Engineer(menLotionBuilder);
+//        engineerMen.createLotion();
+//        engineerMen.getLotion().display();
+//        WomanLotionBuilder womanLotionBuilder= new WomanLotionBuilder();
+//        Engineer engineerWmn = new Engineer(womanLotionBuilder);
+//        engineerWmn.createLotion();
+//        engineerWmn.getLotion().display();
 
 
     }

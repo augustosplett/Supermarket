@@ -14,6 +14,13 @@ public class CheckingAccount {
     public void SaveMovementToStatement(StatementMovement movement){
         this.statement.add(movement);
     }
+    public void DisplayStatement(){
+        for(StatementMovement mov: statement){
+            System.out.println("COde: " + mov.getCode()
+                            + " Description: " + mov.getDescription()
+                            +" Value: " + mov.getValue());
+        }
+    }
     public double TotalIncome(){
         return SumTransaction(TransactionType.SELL_PRODUCTS);
     }

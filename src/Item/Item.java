@@ -16,6 +16,13 @@ public class Item {
         this.soldQuantity = 0;
     }
 
+    public Item(String name, double price, int currentQuantity, int soldQuantity, int boughtQuantity) {
+        this.name = name;
+        this.price = price;
+        this.currentQuantity = currentQuantity;
+        this.soldQuantity = soldQuantity;
+        this.boughtQuantity = boughtQuantity;
+    }
     public String getName() {
         return name;
     }
@@ -56,13 +63,7 @@ public class Item {
         this.boughtQuantity = boughtQuantity;
     }
 
-    public Item(String name, double price, int currentQuantity, int soldQuantity, int boughtQuantity) {
-        this.name = name;
-        this.price = price;
-        this.currentQuantity = currentQuantity;
-        this.soldQuantity = soldQuantity;
-        this.boughtQuantity = boughtQuantity;
-    }
+
 
 
 
