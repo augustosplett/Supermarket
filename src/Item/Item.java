@@ -1,4 +1,4 @@
-package Warehouse;
+package Item;
 
 public class Item {
 

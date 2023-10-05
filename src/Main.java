@@ -1,4 +1,7 @@
-import Warehouse.Item;
+import Item.Item;
+import Item.MenLotionBuilder;
+import Item.WomanLotionBuilder;
+import Item.Engineer;
 import Warehouse.Warehouse;
 
 public class Main {

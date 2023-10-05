@@ -1,4 +1,6 @@
- public interface Builder {
+package Item;
+
+public interface IBuilder {
 
      void buildMixQuemical();
 

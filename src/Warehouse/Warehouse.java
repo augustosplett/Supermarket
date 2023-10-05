@@ -1,5 +1,7 @@
 package Warehouse;
 
+import Item.Item;
+
 import java.util.ArrayList;
 
 public class Warehouse {
@@ -24,5 +26,8 @@ public class Warehouse {
             System.out.println("name: " +itemVariable.getName()+ "Price: " + itemVariable.getPrice());   /// Display each student in the array
     }
 
+    public void buyItems(Warehouse origin, Warehouse buyer, Item itemToBuy){
+
+    }
 }
 

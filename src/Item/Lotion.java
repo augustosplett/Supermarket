@@ -1,4 +1,4 @@
-import Warehouse.Item;
+package Item;
 
 public class Lotion extends Item {
 
@@ -36,7 +36,7 @@ public class Lotion extends Item {
     Lotion getLotion(){
         return this;
     }
-    void display(){
+    public void display(){
         System.out.println("Mix Quemicals : " + getMixQuemical());
         System.out.println("Fill Container : " + getFillContainer());
         System.out.println("Pack Product : " + getPackProduct());
