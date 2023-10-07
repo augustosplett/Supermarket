@@ -85,7 +85,12 @@ public class Warehouse {
             //System.out.println(e.getMessage());
         }
     }
-
+    public void sellAllInventory(){
+        for(Item item : this.inventory){
+            var availableQtde = item.getCurrentQuantity();
+            item.itemSold(availableQtde);
+        }
+    }
     public Item findItemOnWarehouse(Warehouse warehouse, Item item){
         return warehouse.inventory.stream()
                 .filter( product -> item.getName().equals(product.getName()))

@@ -156,11 +156,11 @@ public class SuperMarket {
                 administrativeMenu();
                 break;
             case 3:
-                System.out.println("menu3");
+                sellInventory();
+                administrativeMenu();
                 break;
             case 4:
                 displayInventory();
-                //implement method to ask if the user wants to see more details of the items on the warehouse
                 administrativeMenu();
                 break;
             case 5:
@@ -175,12 +175,58 @@ public class SuperMarket {
 
         }
     }
+
+    private void sellInventory() {
+        Scanner scanner = new Scanner(System.in);
+        this.warehouse.availableItemsWithQuantityTable();
+        System.out.println("1 - Sell the whole inventory");
+        System.out.println("2 - Sell a specific item");
+        System.out.print("ENTER YOUR CHOICE: ");
+        switch(Integer.parseInt(scanner.next())){
+            case 1:
+                System.out.print("HOW MUCH DO YOU WANT FOR ALL YOUR ITEMS? : ");
+                var amount = Double.parseDouble(scanner.next());
+                this.warehouse.sellAllInventory();
+
+                var transaction =
+                        new StatementMovement(TransactionType.SELL_PRODUCTS,
+                                "All Inventory Sold",
+                                amount);
+                this.account.SaveMovementToStatement(transaction);
+
+                break;
+            case 2:
+                System.out.print("Inform the Item ID: ");
+                var id = Integer.parseInt(scanner.next());
+                System.out.print("How many items do you want to sell? ");
+                var qtde = Integer.parseInt(scanner.next());
+                System.out.print("How much do you want for these items? ");
+                var value =  Double.parseDouble(scanner.next());
+
+                var myItem = this.warehouse.inventory.get(id - 1);
+                if(myItem.getCurrentQuantity() >= qtde){
+                    myItem.itemSold(qtde);
+
+                    var myTransaction =
+                            new StatementMovement(TransactionType.SELL_PRODUCTS,
+                                    qtde + " - " + myItem.getName(),
+                                    value);
+                    this.account.SaveMovementToStatement(myTransaction);
+                }else{
+                    System.out.println("Quantity not available to sell.");
+                }
+
+                break;
+        }
+
+    }
+
     public void displayInventory(){
         Scanner scanner = new Scanner(System.in);
         this.warehouse.availableItemsWithQuantityTable();
         System.out.println("1 - See detailed inventory");
         System.out.println("2 - Go back to administrative menu");
-        System.out.println("ENTER YOUR CHOICE: ");
+        System.out.print("ENTER YOUR CHOICE: ");
         if (Integer.parseInt(scanner.next()) == 1) {
             this.warehouse.availableItemsDetailedTable();
         }
