@@ -159,7 +159,7 @@ public class SuperMarket {
                 System.out.println("menu3");
                 break;
             case 4:
-                this.warehouse.availableItemsWithQuantityTable();
+                displayInventory();
                 //implement method to ask if the user wants to see more details of the items on the warehouse
                 administrativeMenu();
                 break;
@@ -173,6 +173,16 @@ public class SuperMarket {
                 System.exit(0);
                 break;
 
+        }
+    }
+    public void displayInventory(){
+        Scanner scanner = new Scanner(System.in);
+        this.warehouse.availableItemsWithQuantityTable();
+        System.out.println("1 - See detailed inventory");
+        System.out.println("2 - Go back to administrative menu");
+        System.out.println("ENTER YOUR CHOICE: ");
+        if (Integer.parseInt(scanner.next()) == 1) {
+            this.warehouse.availableItemsDetailedTable();
         }
     }
 
