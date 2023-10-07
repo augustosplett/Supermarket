@@ -1,13 +1,14 @@
 package Account;
 
+
 import java.util.ArrayList;
 
 public class CheckingAccount {
-    public double balance;
+
     private ArrayList<StatementMovement> statement;//modify to private and implement a method to insert into the statement
 
-    public CheckingAccount(double balance) {
-        this.balance = balance;
+    public CheckingAccount() {
+
         this.statement = new ArrayList<StatementMovement>();
     }
 
@@ -16,9 +17,9 @@ public class CheckingAccount {
     }
     public void DisplayStatement(){
         for(StatementMovement mov: statement){
-            System.out.println("COde: " + mov.getCode()
+            System.out.println("Code: " + mov.getCode()
                             + " Description: " + mov.getDescription()
-                            +" Value: " + mov.getValue());
+                            + " Value: " + mov.getValue());
         }
     }
     public double TotalIncome(){
@@ -49,4 +50,8 @@ public class CheckingAccount {
         return amount;
     }
 
+    private double balance(){
+        //implement the function to calculate the balance
+        return 0.0;
+    }
 }

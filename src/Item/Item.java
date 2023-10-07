@@ -27,16 +27,8 @@ public class Item {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public double getPrice() {
         return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
     }
 
     public int getCurrentQuantity() {
@@ -63,8 +55,13 @@ public class Item {
         this.boughtQuantity = boughtQuantity;
     }
 
+    public void itemSold( int quantity){
+        this.setCurrentQuantity(this.getCurrentQuantity() - quantity);
+        this.setSoldQuantity(this.getSoldQuantity() + quantity);
+    }
 
-
-
-
+    public void itemBought( int quantity){
+        this.setBoughtQuantity(this.getBoughtQuantity() + quantity);
+        this.setCurrentQuantity(this.getCurrentQuantity() + quantity);
+    }
 }
