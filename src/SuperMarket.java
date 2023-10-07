@@ -9,16 +9,22 @@ import java.util.Scanner;
 
 public class SuperMarket {
 
-    LocalDateTime lastEmployeesPayment;
+    long lastEmployeesPayment;
     public CheckingAccount account ;
     public Warehouse warehouse;
 
     public SuperMarket() {
+        this.lastEmployeesPayment = System.currentTimeMillis();
         this.warehouse = new Warehouse();
         this.account = new CheckingAccount();
-        this.lastEmployeesPayment = LocalDateTime.now();
-    }
 
+    }
+    private void registerEmployeesPayment(long time, double value){
+        var transaction = new StatementMovement(TransactionType.PAY_EMPLOYEES,
+                "Payment for " + time + " seconds of work.",
+                value);
+        this.account.SaveMovementToStatement(transaction);
+    }
     public void registerBuyTransaction(int quantity, Item item) {
         var transaction =
                 new StatementMovement(TransactionType.BUY_PRODUCTS,
@@ -85,7 +91,7 @@ public class SuperMarket {
 
         System.out.format(profitTableFormat,
                 "A - TOTAL EXPENSES (1 + 2)",
-                this.account.TotalEmployeesPayments() + this.account.TotalPurchases()
+                this.account.TotalOutcome()
         );
 
         System.out.println("+------------------------------------------+----------------+");
@@ -122,10 +128,12 @@ public class SuperMarket {
         System.out.print(" ENTER YOUR CHOICE: ");
         handleUserChoice(Integer.parseInt(scanner.next()));
     }
+
     public void handleUserChoice(int userInput){
         switch (userInput){
             case 1:
-                System.out.println("menu1");
+                payEmployees();
+                administrativeMenu();
                 break;
             case 2:
                 Main.WAREHOUSE_CENTRAL.availableItemsWithQuantityTable();
@@ -151,5 +159,14 @@ public class SuperMarket {
                 break;
 
         }
+    }
+
+    public void payEmployees(){
+        long elapsed = System.currentTimeMillis() - lastEmployeesPayment; //check how much time since last payment
+        lastEmployeesPayment = System.currentTimeMillis(); //set a new last payment time
+        var cost = 2600 / 60;
+        var amountOfTime = elapsed / 1000;
+        var employeesPaymentAmount =  cost * amountOfTime;
+        registerEmployeesPayment(amountOfTime, employeesPaymentAmount);
     }
 }
