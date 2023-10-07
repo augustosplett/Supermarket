@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Warehouse {
 
-    ArrayList<Item> inventory;
+    public ArrayList<Item> inventory;
 
     public Warehouse() {
         this.inventory = new ArrayList<Item>();
@@ -15,16 +15,6 @@ public class Warehouse {
         inventory.add(itemParam);
     } //method to add items in the array
 
-    public void displayItems() {
-        for(Item itemVariable: inventory)
-            System.out.println("Name: " + itemVariable.getName()
-                    + " Price: " + itemVariable.getPrice()
-                    + " Current Quantity: " + itemVariable.getCurrentQuantity()
-                    + " Sold Quantity: " + itemVariable.getSoldQuantity()
-                    + " Bought Quantity: " + itemVariable.getBoughtQuantity()
-            );/// Display each student in the array
-    }
-
     public void availableItemsWithQuantityTable(){
         String tableFormat = "| %-2d | %-15s | %-7.2f | %-4d |%n";
 
@@ -33,13 +23,13 @@ public class Warehouse {
         System.out.format("+----+-----------------+---------+------+%n");
         var i = 0;
         for(Item item : inventory){
-            if(item.getCurrentQuantity() > 0){
-                System.out.format(tableFormat,
-                        i += 1,
-                        item.getName(),
-                        item.getPrice(),
-                        item.getCurrentQuantity());
-            }
+
+            System.out.format(tableFormat,
+                    i += 1,
+                    item.getName(),
+                    item.getPrice(),
+                    item.getCurrentQuantity());
+
         }
         System.out.format("+----+-----------------+---------+------+%n");
 
@@ -48,7 +38,9 @@ public class Warehouse {
     public void buyItem(Warehouse originWarehouse, Item itemToBuy, int quantity){
 
         try{
+            //find the desired item on the origin warehouse
             var itemOnOriginWarehouse = findItemOnWarehouse(originWarehouse, itemToBuy);
+            //if the warehouse have enough quantity
             if (itemOnOriginWarehouse.getCurrentQuantity() >= quantity){
                 //move the item on the origin warehouse
                 itemOnOriginWarehouse.itemSold(quantity);
@@ -64,13 +56,16 @@ public class Warehouse {
                             0,
                             quantity));
                 }
+                System.out.println("Item Purchased!");
+            }else {
+                System.out.println("Quantity not available!");
             }
         }catch (Exception e){
             //System.out.println(e.getMessage());
         }
     }
 
-    private Item findItemOnWarehouse(Warehouse warehouse, Item item){
+    public Item findItemOnWarehouse(Warehouse warehouse, Item item){
         return warehouse.inventory.stream()
                 .filter( product -> item.getName().equals(product.getName()))
                 .findAny()

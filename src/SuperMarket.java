@@ -129,16 +129,31 @@ public class SuperMarket {
         handleUserChoice(Integer.parseInt(scanner.next()));
     }
 
+    public void showItemsOnWarehouseSeller(Warehouse origin){
+        Scanner scanner = new Scanner(System.in);
+
+        origin.availableItemsWithQuantityTable();
+        System.out.print("Enter the item you want to buy: ");
+        int chosenItem =Integer.parseInt(scanner.next());
+        System.out.print("Enter how much of this item you want to buy: ");
+        int qtde =Integer.parseInt(scanner.next());
+
+        Item item = origin.inventory.get(chosenItem - 1);
+
+        this.refillWarehouse(origin, item, qtde);
+    }
+
     public void handleUserChoice(int userInput){
         switch (userInput){
             case 1:
+                //pay employees and register transaction.
                 payEmployees();
                 administrativeMenu();
                 break;
             case 2:
-                Main.WAREHOUSE_CENTRAL.availableItemsWithQuantityTable();
+                //just buying using the name is missing
+                showItemsOnWarehouseSeller(Main.WAREHOUSE_CENTRAL);
                 administrativeMenu();
-
                 break;
             case 3:
                 System.out.println("menu3");
@@ -164,9 +179,9 @@ public class SuperMarket {
     public void payEmployees(){
         long elapsed = System.currentTimeMillis() - lastEmployeesPayment; //check how much time since last payment
         lastEmployeesPayment = System.currentTimeMillis(); //set a new last payment time
-        var cost = 2600 / 60;
-        var amountOfTime = elapsed / 1000;
-        var employeesPaymentAmount =  cost * amountOfTime;
-        registerEmployeesPayment(amountOfTime, employeesPaymentAmount);
+        var cost = 2600 / 60; //transform the cost from minute to second
+        var amountOfTime = elapsed / 1000; //transform milliseconds to seconds
+        var employeesPaymentAmount =  cost * amountOfTime; //calculate the total amount to be paid
+        registerEmployeesPayment(amountOfTime, employeesPaymentAmount);//register the transaction
     }
 }
