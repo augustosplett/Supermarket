@@ -1,4 +1,4 @@
-package Item;
+package Item.Bike;
 
 public abstract class RoadBike implements BuilderBike{
 

@@ -1,4 +1,6 @@
-package Item;
+package Item.Lotion;
+
+import Item.Item;
 
 public class Lotion extends Item {
 
@@ -6,8 +8,8 @@ public class Lotion extends Item {
     private String container;
     private String box;
 
-    Lotion(String name, Double price) {
-        super(name, price);
+    Lotion(String name, Double price, int quantity) {
+        super(name, price, quantity, 0, 0);
     }
 
     String getLiquid() {

@@ -1,6 +1,6 @@
-package Item;
+package Item.Bike;
 
-import java.nio.file.attribute.UserDefinedFileAttributeView;
+import Item.Item;
 
 public class Bicycle extends Item {
     String breaks;

@@ -16,11 +16,11 @@ public class Warehouse {
     } //method to add items in the array
 
     public void availableItemsWithQuantityTable(){
-        String tableFormat = "| %-2d | %-15s | %-7.2f | %-4d |%n";
+        String tableFormat = "| %-2d | %-41s | %-7.2f | %-4d |%n";
 
-        System.out.format("+----+-----------------+---------+------+%n");
-        System.out.format("| ID | ITEM NAME       | PRICE   | QTDE |%n");
-        System.out.format("+----+-----------------+---------+------+%n");
+        System.out.format("+----+-------------------------------------------+---------+------+%n");
+        System.out.format("| ID | ITEM NAME                                 | PRICE   | QTDE |%n");
+        System.out.format("+----+-------------------------------------------+---------+------+%n");
         var i = 0;
         for(Item item : inventory){
 
@@ -31,16 +31,15 @@ public class Warehouse {
                     item.getCurrentQuantity());
 
         }
-        System.out.format("+----+-----------------+---------+------+%n");
-
+        System.out.format("+----+-------------------------------------------+---------+------+%n");
     }
 
     public void availableItemsDetailedTable(){
-        String tableFormat = "| %-2d | %-15s | %-7.2f | %-13d | %-13d | %-13d |%n";
+        String tableFormat = "| %-2d | %-41s | %-7.2f | %-13d | %-13d | %-13d |%n";
 
-        System.out.format("+----+-----------------+---------+---------------+---------------+---------------+%n");
-        System.out.format("| ID | ITEM NAME       | PRICE   |  CURRENT QTDE | SOLD QTDE     |   BOUGHT QTDE |%n");
-        System.out.format("+----+-----------------+---------+---------------+---------------+---------------+%n");
+        System.out.format("+----+-------------------------------------------+---------+---------------+---------------+---------------+%n");
+        System.out.format("| ID | ITEM NAME                                 | PRICE   |  CURRENT QTDE | SOLD QTDE     |   BOUGHT QTDE |%n");
+        System.out.format("+----+-------------------------------------------+---------+---------------+---------------+---------------+%n");
         var i = 0;
         for(Item item : inventory){
 
@@ -53,7 +52,7 @@ public class Warehouse {
                     item.getBoughtQuantity());
 
         }
-        System.out.format("+----+-----------------+---------+---------------+---------------+---------------+%n");
+        System.out.format("+----+-------------------------------------------+---------+---------------+---------------+---------------+%n");
 
     }
     public void buyItem(Warehouse originWarehouse, Item itemToBuy, int quantity){

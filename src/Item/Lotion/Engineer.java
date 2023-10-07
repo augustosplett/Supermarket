@@ -1,6 +1,4 @@
-package Item;
-
-import Item.IBuilder;
+package Item.Lotion;
 
 public class Engineer {
 

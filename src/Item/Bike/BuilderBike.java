@@ -1,4 +1,4 @@
-package Item;
+package Item.Bike;
 
 public interface BuilderBike {
 
