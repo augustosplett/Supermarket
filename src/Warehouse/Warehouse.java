@@ -35,6 +35,27 @@ public class Warehouse {
 
     }
 
+    public void availableItemsDetailedTable(){
+        String tableFormat = "| %-2d | %-15s | %-7.2f | %-13d | %-13d | %-13d |%n";
+
+        System.out.format("+----+-----------------+---------+---------------+---------------+---------------+%n");
+        System.out.format("| ID | ITEM NAME       | PRICE   |  CURRENT QTDE | SOLD QTDE     |   BOUGHT QTDE |%n");
+        System.out.format("+----+-----------------+---------+---------------+---------------+---------------+%n");
+        var i = 0;
+        for(Item item : inventory){
+
+            System.out.format(tableFormat,
+                    i += 1,
+                    item.getName(),
+                    item.getPrice(),
+                    item.getCurrentQuantity(),
+                    item.getSoldQuantity(),
+                    item.getBoughtQuantity());
+
+        }
+        System.out.format("+----+-----------------+---------+---------------+---------------+---------------+%n");
+
+    }
     public void buyItem(Warehouse originWarehouse, Item itemToBuy, int quantity){
 
         try{
