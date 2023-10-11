@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class SuperMarket {
 
-    long lastEmployeesPayment;
+    private      long lastEmployeesPayment;
     public CheckingAccount account ;
     public Warehouse warehouse;
 

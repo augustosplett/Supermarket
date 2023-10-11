@@ -16,23 +16,23 @@ public class Lotion extends Item {
         return liquid;
     }
 
-     void setLiquid(String liquid) {
+    void setLiquid(String liquid) {
         this.liquid = liquid;
     }
 
-     String getContainer() {
+    String getContainer() {
         return container;
     }
 
-     void setContainer(String container) {
+    void setContainer(String container) {
         this.container = container;
     }
 
-   String getBox() {
+    String getBox() {
         return box;
     }
 
-   void setBox (String box) {
+    void setBox (String box) {
         this.box = box;
     }
     Lotion getLotion(){
@@ -40,7 +40,7 @@ public class Lotion extends Item {
     }
 
     public void display(){
-        System.out.println("Mix Quemicals : " + getLiquid());
+        System.out.println("Mix Chemicals : " + getLiquid());
         System.out.println("Fill Container : " + getContainer());
         System.out.println("Pack Product : " + getBox());
 

@@ -44,19 +44,5 @@ public class Main {
         SUPER_MARKET.welcomePage();
         SUPER_MARKET.administrativeMenu();
 
-
-
-
-        //System.out.println("Builder constructed: " + iphone.getItem().getCurrentQuantity());
-//        MenLotionBuilder menLotionBuilder= new MenLotionBuilder();
-//        Engineer engineerMen = new Engineer(menLotionBuilder);
-//        engineerMen.createLotion();
-//        engineerMen.getLotion().display();
-//        WomanLotionBuilder womanLotionBuilder= new WomanLotionBuilder();
-//        Engineer engineerWmn = new Engineer(womanLotionBuilder);
-//        engineerWmn.createLotion();
-//        engineerWmn.getLotion().display();
-
-
     }
 }
